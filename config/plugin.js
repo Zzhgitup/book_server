@@ -4,8 +4,8 @@
 module.exports = {
   // had enabled by egg
   // static: {
-  //   enable: true,
-  // }
+  //   enable: tr
+
   ejs: {
     enable: true,
     package: 'egg-view-ejs'
@@ -22,4 +22,8 @@ module.exports = {
     enable: true,
     package: 'egg-cors'
   }
+  /*   swaggerdoc: {
+    enable: true,
+    package: 'egg-swagger-doc'
+  } */
 };

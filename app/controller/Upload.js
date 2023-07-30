@@ -4,6 +4,9 @@ const moment = require('moment');
 const { mkdirp } = require('mkdirp');
 const { dir } = require('console');
 const Controller = require('egg').Controller;
+/**
+ * @controller 上传文件
+ */
 class UploadController extends Controller {
   //上传文件
   async upload() {

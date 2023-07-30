@@ -2,6 +2,9 @@
 const { Controller } = require('egg');
 const defaultavte =
   'https://p3-passport.byteimg.com/img/user-avatar/6971cbaa33a2f797512b9bfb86732e02~100x100.awebp';
+/**
+ * @controller 用户管理
+ */
 class UserController extends Controller {
   token = this.ctx.request.header.authorization;
   secret = this.app.config.jwt.secret;
@@ -158,6 +161,27 @@ class UserController extends Controller {
       ctx.body = {
         code: 500,
         msg: '修改失败'
+      };
+    }
+  }
+  //手写JSONp
+  async JSONPtext() {
+    const { ctx } = this;
+    const callbackname = ctx.query.callback;
+    const date = {
+      a: 1,
+      b: 2
+    };
+    const jsonDate = JSON.stringify(date);
+    const jscode = `${callbackname}(${jsonDate})`;
+    ctx.set('Content-type', 'text/javascript');
+    ctx.body = jscode;
+    try {
+    } catch (error) {
+      console.log(error);
+      ctx.body = {
+        code: 500,
+        msg: '系统错误'
       };
     }
   }
